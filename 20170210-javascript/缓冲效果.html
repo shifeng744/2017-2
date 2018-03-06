@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+            top:50px;
+
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="右" id="btn">
+<input type="button" value="左" id="btn1">
+<div class="box"></div>
+<script>
+    var oBox=document.getElementsByClassName("box")[0];
+    var oBtn=document.getElementById("btn");
+    var oBtn1=document.getElementById("btn1");
+    var num=1,timer=null,speed=5;
+    function fn1(btn,bumb) {
+        btn.onclick=function () {
+                clearInterval(timer);
+                timer=setInterval(function () {
+                    speed=(bumb -oBox.offsetLeft)/10;
+                    speed=speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+                    oBox.style.left=oBox.offsetLeft + speed+"px";
+                },20)
+            }
+    };
+    fn1(oBtn,500);
+    fn1(oBtn1,0);
+    /*oBtn1.onclick=function () {
+        clearInterval(timer);
+        timer=setInterval(function () {
+            speed=(100-oBox.offsetLeft)/10;
+            oBox.style.left=oBox.offsetLeft + speed+"px";
+        },20)
+    }*/
+
+
+</script>
+</body>
+</html>

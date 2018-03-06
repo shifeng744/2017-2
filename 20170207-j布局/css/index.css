@@ -1,0 +1,71 @@
+html,body,ul,li,a{
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-family: 微软雅黑;
+}
+.header{
+    height: 64px;
+    width: 100%;
+    background-color: #47cdcd;
+    line-height: 64px;
+}
+.header .header-c{
+    width: 1350px;
+    margin: auto;
+}
+.header .header-c .left{
+    line-height: 64px;
+}
+.header .header-c .pic{
+    display: inline-block;
+    width: 164px;
+
+}
+.header .header-c .pic img{
+    margin:15px 0;
+    height: 38px;
+}
+.header .header-c .left{
+    float: left;
+}
+.header .header-c ul{
+    list-style: none;
+    float: right;
+}
+.header .header-c ul li{
+    display: inline-block;
+}
+.header .header-c ul li a{
+    padding: 21px 19px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 17px;
+}
+.header .header-c ul .newst{
+    background-color: #157373;
+    position: relative;
+    left: 5px;
+}
+.header .header-c ul li a:hover{
+    background-color: #157373;
+}
+.header .header-c .from{
+    float: right;
+}
+.header .header-c .from .text1{
+    width: 288px;
+    height: 30px;
+    font-size: 19px;
+}
+.header .header-c .from .btn{
+    width: 80px;
+    height: 33px;
+    background-color: #cc6600;
+    border: 0;
+    color: #fff;
+    font-size: 19px;
+    position: relative;
+    left: -87px;
+}

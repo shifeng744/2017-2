@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .bigbox{
+            width: 500px;
+            height: 180px;
+            border: 1px solid #ccc;
+            margin: 50px auto;
+            position: relative;
+        }
+        .inner{
+            position: relative;
+            width: 490px;
+            overflow: hidden;
+            height: 170px;
+            margin: 5px;
+        }
+        .ull{
+            width: 500%;
+            position: absolute;
+            left: 0;
+        }
+        .ull li{
+            list-style: none;
+            float: left;
+        }
+        .oll{
+            position: absolute;
+            z-index: 2;
+            left: 50%;
+            margin-left: -86px;
+            bottom: 10px;
+        }
+        .oll li{
+            list-style: none;
+            display: inline-block;
+            background: #cccccc;
+            padding:5px 10px;
+
+        }
+        .oll .cur{
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+<body>
+    <div class="bigbox">
+        <div class="inner">
+            <ul class="ull">
+                <li><img src="images/01-y.jpg"> </li>
+                <li><img src="images/02-y.jpg"> </li>
+                <li><img src="images/03-y.jpg"> </li>
+                <li><img src="images/04-y.jpg"> </li>
+                <li><img src="images/05-y.jpg"> </li>
+            </ul>
+        </div>
+        <ol class="oll">
+            <li class="cur">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ol>
+    </div>
+<script>
+    var box=document.getElementsByClassName("bigbox");
+    var ull=document.getElementsByClassName("ull")[0];
+    var abtn=document.getElementsByClassName("oll")[0].children;
+    var timer=null,iTager,speed=5,num=0;
+    for(var i=0;i<abtn.length;i++)
+    {   abtn[i].index=i;
+        abtn[i].onclick=function () {
+            for(var i=0;i<abtn.length;i++){
+                abtn[i].className=""
+            }
+            this.className="cur";
+            iTager=-this.index*490;
+            num=this.index
+        }
+    }
+
+        function buffer() {
+            timer=setInterval(function () {
+                speed=(iTager-ull.offsetLeft)/10;
+                speed=speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+                ull.style.left=speed+ull.offsetLeft +"px"
+            },30)
+        }
+    buffer();
+   function autoPlay() {
+        timer=setInterval(function () {
+            num++;
+            num >=5 ? num=0 : num;
+            for(var i=0;i<abtn.length;i++){
+                abtn[i].className="";
+            }
+            abtn[num].className="cur";
+            iTager=num*-490
+        },2000)
+    }
+    autoPlay()
+
+</script>
+</body>
+</html>

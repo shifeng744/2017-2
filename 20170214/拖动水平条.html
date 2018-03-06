@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            height: 15px;
+            width: 500px;
+            margin: 150px auto;
+            position: relative;
+        }
+        .big{
+            background: #ccc;
+            height: 15px;
+            width: 100%;
+        }
+        .btn{
+            height: 40px;
+            width: 20px;
+            background-color: #1b6d85;
+            position: absolute;
+            top:-13px;
+            left:0;
+            cursor: move;
+        }
+        .small{
+            position: absolute;
+            background-color:#1b6d85 ;
+            height: 15px;
+
+            top:0;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="big"></div>
+        <div class="btn"></div>
+        <div class="small"></div>
+        <p class="p">你已经走了0%</p>
+    </div>
+<script>
+    var obox=document.getElementsByClassName("box")[0];
+    var big=document.getElementsByClassName("big")[0];
+    var btn=document.getElementsByClassName("btn")[0];
+    var p=document.getElementsByClassName("p")[0];
+    var small=document.getElementsByClassName("small")[0];
+    btn.onmousedown=function (ev) {
+        var that=this;
+        var oevent=ev || event;
+        var x=oevent.clientX - this.offsetLeft;
+       document.onmousemove=function (ev) {
+           var oevent=ev || event;
+
+               that.style.left=oevent.clientX - x +"px";
+               small.style.width=oevent.clientX - x +"px";
+                if(that.offsetLeft<=0){
+                    that.style.left="0px";
+                }
+                else if(that.offsetLeft>=obox.offsetWidth)
+                {
+                    that.style.left=obox.offsetWidth +"px";
+                    small.style.width=obox.offsetWidth +"px";
+           }
+           window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
+           p.innerHTML="你已经走了"+parseInt(small.offsetWidth/obox.offsetWidth *100)+"%"
+       };
+        document.onmouseup=function () {
+            this.onmousemove=function () {
+                return;
+            }
+        }
+    }
+</script>
+</body>
+</html>

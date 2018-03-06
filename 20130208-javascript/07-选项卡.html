@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box div{
+            width: 150px;
+            height: 150px;
+            background-color: #ccc;
+            display: none;
+        }
+        .cur{
+            background-color: red;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="box" class="box">
+        <input type="button" value="话费1" class="cur">
+        <input type="button" value="话费2">
+        <input type="button" value="话费3">
+        <input type="button" value="话费4">
+        <div class="box1" style="display: block">a111111111</div>
+        <div >22222222222222</div>
+        <div>33333333333333</div>
+        <div>4444444444444444</div>
+    </div>
+    <script>
+        var obox=document.getElementById("box");
+        var abtn=obox.getElementsByTagName("input");
+        var adiv=obox.getElementsByTagName("div");
+        for(var i=0;i<abtn.length;i++)
+        {
+            abtn[i].index=i;
+            abtn[i].onclick=function ()
+            {
+                for(var i=0;i<abtn.length;i++){
+                    abtn[i].className=" ";
+                    adiv[i].style.display="none"
+                }
+                this.className="cur";
+                num=this.index;//关键代码
+                adiv[this.index].style.display="block"
+            }
+        }
+        //轮播
+        var timer=null,num=0;
+        function fn1() {
+            clearInterval(timer);
+            timer=setInterval(function () {
+                num++;
+                if (num>=abtn.length){
+                    num=0
+                }
+                for(var i=0;i<abtn.length;i++){
+                    abtn[i].className=" ";
+                    adiv[i].style.display="none"
+                }
+                adiv[num].style.display="block"
+                abtn[num].className="cur"
+            },1000);
+        }
+        fn1()
+
+
+
+
+        //轮播结束
+
+
+
+
+
+
+
+
+        /*function fn1(id) {
+        var obox=document.getElementById(id);
+        var abtn=obox.getElementsByTagName("input");
+        var adiv=obox.getElementsByTagName("div");
+        for(var i=0;i<abtn.length;i++){
+            abtn[i].index=i;
+            abtn[i].onclick=function () {
+
+                for(var j=0;j<abtn.length;j++){
+                    abtn[j].className="";
+                    adiv[j].style.display="none";
+                }
+                this.className="cur";
+                adiv[this.index].style.display="block"
+            }
+        }
+        }
+        fn1("box");
+        fn1("box1");
+        fn1("box2");*/
+    </script>
+</body>
+</html>

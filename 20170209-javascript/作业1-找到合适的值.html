@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+
+<script>
+
+var arr = [ '100px', 'abc'-6, [], -98765, 34, -2, 0, '300', , function(){alert(1);}, null, document, [],
+true,'200px'-30,'23.45元', 5, Number('abc'), function(){ alert(3); }, 'xyz'-90 ];
+
+
+
+	/*1、找到arr里所有的数字  
+	/*2、找到arr里所有的字符串
+	3、找到可以转成数字的
+	4、把转成数字以后，最大值判断出来
+	5、把 NaN 所在的位置找出来
+	6.找出undifind的位置*/
+	document.write("找到arr里所有的数字");
+    function fn1()
+    {
+        for(var i=0; i<arr.length; i++)
+        {
+            if (typeof arr[i] == "number") {
+
+                if(Number(arr[i]) || arr[i]==0)
+                {
+                    document.write(arr[i]+",");
+                }
+            };
+        }
+
+    }
+    fn1();
+    document.write("找到arr里所有的字符串");
+    function fn2()
+    {
+        for(var i=0; i<arr.length; i++)
+        {
+            if (typeof arr[i] == "string") {
+                    document.write(arr[i]+",");
+
+            }
+        }
+
+    }
+    fn2();
+   document.write("找到arr可以转成数字");
+    function fn3()
+    {
+        for(var i=0;i<arr.length;i++){
+            if(Number(arr[i]) && typeof arr[i] != "number"){
+                document.write(arr[i])
+            }
+        }
+    }
+    fn3();
+   var num=[];
+    document.write("<br>"+"把转成数字以后，最大值判断出来:");
+    function fn4()
+    {
+        for(var i=0;i<arr.length;i++){
+            if(Number(arr[i]) || arr[i]==0){
+                num.push(Number(arr[i]))
+            }
+        }
+    }
+    fn4();
+
+/*饭、方法2，取最大值和最小值
+var arr1=[];
+var arr2=[];
+for(var i=0; i<arr.length; i++)
+{
+    if(parseFloat(arr[i]) || arr[i] == 0)
+    {
+        arr1.push(parseFloat(arr[i]))
+    }
+}
+
+for(var i=0; i<arr1.length; i++)
+{
+    if (!isNaN(arr1[i]))
+    {
+        if (typeof arr1[i] == "number")
+        {
+            arr2.push(arr1[i])
+        }
+    }
+}
+alert(Math.max.apply(Math,arr2));
+alert(Math.min.apply(Math,arr2));
+*/
+
+
+
+    function sortNum(a,b) {
+        return b-a;
+    }
+    num=num.sort(sortNum);
+    document.write(num[0]);
+  document.write("找到arr中NaN的位置");
+    function fn5()
+    {
+        for(var i=0; i<arr.length; i++)
+        {
+            if (typeof arr[i] == "number" && !Number(arr[i]) && arr[i]!=0) {
+                    document.write(i+",");
+            }
+        }
+
+    }
+fn5();
+
+
+      document.write("找到arr中undifind的位置");
+     function fn6()
+     {
+         for(var i=0; i<arr.length; i++)
+         {
+            if (typeof arr[i] == "undefined"){
+            document.write(i+",");
+         }
+     }
+
+     }
+     fn6();
+
+</script>
+
+
+</head>
+
+<body>
+</body>
+</html>

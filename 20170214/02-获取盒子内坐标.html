@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            margin-left: 200px;
+            margin-top: 300px;
+            background: black;
+            color: #fff;
+        }
+        p{
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div id="div">
+
+</div>
+<script>
+    var obox=document.getElementById("div");
+    obox.onmousemove=function (ev) {
+        var oevent=ev || event;
+        var x=oevent.clientX-obox.offsetLeft;
+        var y=oevent.clientY-obox.offsetTop;
+        obox.innerHTML=x+"px,"+y+"px"
+    }
+</script>
+</body>
+</html>

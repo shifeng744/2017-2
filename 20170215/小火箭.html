@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #top{
+            position: fixed;
+            right: 80px;
+            bottom: 100px;
+            display: none;
+        }
+    </style>
+</head>
+<body style="height: 2000px">
+<img src="images/Top.jpg" id="top">
+<script>
+
+    function scroll(){
+        if(document.body.scrollTop){
+            return{
+                top:document.body.scrollTop
+            }
+        }
+        else {
+            return{
+                top:document.documentElement.scrollTop
+            }
+        }
+    }
+    var TopItarget=0,speed=5,timer=null,Itager=0;
+    window.onscroll=function () {
+        var top=document.getElementById("top");
+        if(scroll().top>0){
+            top.style.display="block"
+        }
+        else {
+            top.style.display="none"
+        }
+        TopItarget=scroll().top;
+
+    }
+    var top=document.getElementById("top");
+    var TopItarget=scroll().top;
+    top.onclick=function () {
+        clearInterval(timer);
+        timer=setInterval(function () {
+            speed = (Itager-TopItarget)/10;
+            speed= speed>0 ? Math.ceil(speed): Math.floor(speed);
+            window.scrollTo(0,TopItarget+speed);
+            console.log(TopItarget+speed);
+            if(!TopItarget)
+            {
+                clearInterval(timer)
+            }
+        },30)
+    }
+</script>
+</body>
+</html>

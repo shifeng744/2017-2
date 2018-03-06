@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 400px;
+            height: 600px;
+            border: 1px solid red;
+            margin-top: 100px;
+            margin-left: 100px;
+            position: relative;
+        }
+        #op{
+            position: absolute;
+            width: 360px;
+            top:0px;
+        }
+        #big{
+            width: 40px;
+            height: 100%;
+            border: 1px solid dodgerblue;
+            position: absolute;
+            right: 0;
+        }
+        #small{
+            position: absolute;
+            right: 0;
+            top: 0;
+            background: rebeccapurple;
+            width:40px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <p id="op">阿斯顿和贷款和看谁快好时间会看到ASHD 速度是DJO涉及到了 就哭就 u就就就看偶
+        奇偶以后欧豪我我后我后我后一我hi我我我我一我偶奇偶我级我Joi     我奇偶奇偶及哦哦哦后
+    阿斯顿和贷款和看谁快好时间会看到ASHD 速度是DJO涉及到了 就哭就 u就就就看偶奇偶以后欧
+    豪我我后我后我后一我hi我我我我一我偶奇偶我级我Joi     我奇偶奇偶及哦哦哦后
+    阿斯顿和贷款和看谁快好时间会看到ASHD 速度是DJO涉及到了 就哭就 u就就就看
+    后欧豪我我后我后我后一我hi我我我我一我偶奇偶我级我Joi     我奇偶奇偶及哦哦哦后
+    阿斯顿和贷款和看谁快好时间会看到ASHD 速度是DJO涉及到了 就哭就 u就就就看偶
+    欧豪我我后我后我后一我hi我我我我一我偶奇偶我级我Joi     我奇偶奇偶及哦哦哦后
+        阿斯顿和贷款和看谁快好时间会看到ASHD 速度是DJO涉及到了 就哭就 u就就就看偶
+        奇偶以后欧豪我我后我后我后一我hi我我我我一我偶奇偶我级我Joi     我奇偶奇偶及哦哦哦后
+        阿斯顿和贷款和看谁快好时间会看到ASHD 速度是DJO涉及到了 就哭就 u就就就看偶奇偶以后欧
+        豪我我后我后我后一我hi我我我我一我偶奇偶我级我Joi     我奇偶奇偶及哦哦哦后
+        阿斯顿和贷款和看谁快好时间会看到ASHD 速度是DJO涉及到了 就哭就 u就就就看
+        后欧豪我我后我后我后一我hi我我我我一我偶奇偶我级我Joi     我奇偶奇偶及哦哦哦后
+        阿斯顿和贷款和看谁快好时间会看到ASHD 速度是DJO涉及到了 就哭就 u就就就看偶
+        欧豪我我后我后我后一我hi我我我我一我偶奇偶我级我Joi     我奇偶奇偶及哦哦哦后
+        阿斯顿和贷款和看谁快好时间会看到ASHD 速度是DJO涉及到了 就哭就 u就就就看偶
+        奇偶以后欧豪我我后我后我后一我hi我我我我一我偶奇偶我级我Joi     我奇偶奇偶及哦哦哦后
+        阿斯顿和贷款和看谁快好时间会看到ASHD 速度是DJO涉及到了 就哭就 u就就就看偶奇偶以后欧
+        豪我我后我后我后一我hi我我我我一我偶奇偶我级我Joi     我奇偶奇偶及哦哦哦后
+        阿斯顿和贷款和看谁快好时间会看到ASHD 速度是DJO涉及到了 就哭就 u就就就看
+        后欧豪我我后我后我后一我hi我我我我一我偶奇偶我级我Joi     我奇偶奇偶及哦哦哦后
+        阿斯顿和贷款和看谁快好时间会看到ASHD 速度是DJO涉及到了 就哭就 u就就就看偶
+        欧豪我我后我后我后一我hi我我我我一我偶奇偶我级我Joi     我奇偶奇偶及哦哦哦后
+        阿斯顿和贷款和看谁快好时间会看到ASHD 速度是DJO涉及到了 就哭就 u就就就看偶
+        奇偶以后欧豪我我后我后我后一我hi我我我我一我偶奇偶我级我Joi     我奇偶奇偶及哦哦哦后
+        阿斯顿和贷款和看谁快好时间会看到ASHD 速度是DJO涉及到了 就哭就 u就就就看偶奇偶以后欧
+        豪我我后我后我后一我hi我我我我一我偶奇偶我级我Joi     我奇偶奇偶及哦哦哦后
+        阿斯顿和贷款和看谁快好时间会看到ASHD 速度是DJO涉及到了 就哭就 u就就就看
+        后欧豪我我后我后我后一我hi我我我我一我偶奇偶我级我Joi     我奇偶奇偶及哦哦哦后
+
+
+       </p>
+    <div id="big"></div>
+    <div id="small"></div>
+    <script>
+        var small=document.getElementById("small");
+        var box=document.getElementById("box");
+        var op=document.getElementById("op");
+        var x=op.offsetHeight-box.offsetHeight;
+        small.style.height=box.offsetHeight-x+"px";
+        small.onmousedown=function (ev) {
+            var that=this;
+            var oevent=ev || event;
+            var y=oevent.screenY-small.offsetTop;
+            document.onmousemove=function (ev) {
+                var oevent=ev || event;
+                if(that.offsetTop<=-1)
+                {
+                    that.style.top="0px"
+                }
+                else if(that.offsetTop>box.offsetHeight-that.offsetHeight+1){
+                    that.style.top=box.offsetHeight-that.offsetHeight+"px"
+                }
+                else {
+                    that.style.top=oevent.clientY-y+(small.offsetHeight/2)-90+"px";
+                    op.style.top=-(oevent.clientY-y+(small.offsetHeight/2)-90)+"px";
+                }
+
+            };
+            window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
+        };
+        document.onmouseup=function(){
+            document.onmousemove=null;
+        };
+    </script>
+</div>
+</body>
+</html>

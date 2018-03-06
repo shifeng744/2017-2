@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            width: 300px;
+            height: 350px;
+            position: fixed;
+            top:50%;
+            right: -250px;
+            margin-top:-150px;
+        }
+        .left{
+            width: 50px;
+            height: 120px;
+            background-color: aqua;
+            float: left;
+            margin-top: 90px;
+        }
+        .right{
+            width: 250px;
+            height: 100%;
+            background-color: bisque;
+            float: left;
+        }
+    </style>
+</head>
+<body style="height: 2000px">
+    <div id="box">
+        <div class="left">百度分享</div>
+        <div class="right"></div>
+    </div>
+    <script>
+        var oBox=document.getElementById("box");
+        var left=oBox.getElementsByClassName("left")[0];
+
+        var timer=null,num=-250;
+        oBox.onmouseover=function () {
+            clearInterval(timer);
+            timer=setInterval(function () {
+                num++;
+                if(num>=0){
+                    num=0;
+                    clearInterval(timer)
+                }
+                else {
+                    oBox.style.right=num+"px";
+                }
+                oBox.onmouseout=function () {
+                    clearInterval(timer);
+                    timer=setInterval(function () {
+                        num--;
+                        if(num<=-250){
+
+                            clearInterval(timer)
+                        }
+
+                        oBox.style.right=num+"px";
+
+                    },2)
+                }
+
+            },2)
+        }
+
+    </script>
+</body>
+</html>

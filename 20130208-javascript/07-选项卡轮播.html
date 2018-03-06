@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box div{
+            width: 150px;
+            height: 150px;
+            background-color: #ccc;
+            display: none;
+        }
+        .cur{
+            background-color: red;
+        }
+        .box .box1{
+            display:block;
+        }
+    </style>
+
+</head>
+<body>
+<div id="box" class="box">
+    <input type="button" value="话费1" class="cur">
+    <input type="button" value="话费2">
+    <input type="button" value="话费3">
+    <input type="button" value="话费4">
+    <div class="box1"></div>
+</div>
+
+<script>
+    var obox=document.getElementById("box");
+    var obtn=obox.getElementsByTagName("input");
+    var obox1=obox.getElementsByClassName("box1")[0];
+    var num=0,timer=null;
+    var arr=[
+            "1111111111111",
+            "2222222222222",
+            "333333333333",
+            "4444444444444"
+    ];
+    function fn1() {
+        obox1.innerHTML=arr[num]
+    }
+    fn1();
+    for(var i=0;i<obtn.length;i++){
+        obtn[i].index=i;
+        obtn[i].onclick=function () {
+            for(var i=0;i<obtn.length;i++){
+                obtn[i].className=""
+            }
+            num=this.index;
+            this.className="cur";
+            obox1.innerHTML=arr[num];
+        }
+    }
+    function autoplay() {
+        clearInterval(timer);
+        timer=setInterval(function () {
+            num++;
+            if(num>=obtn.length){
+                num=0
+            }
+            for(var i=0;i<obtn.length;i++){
+                obtn[i].className=""
+            }
+            obtn[num].className="cur";
+            fn1();
+        },2000)
+    }
+    autoplay();
+</script>
+</body>
+</html>

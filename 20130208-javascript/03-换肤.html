@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="换肤1.css" id="link">
+</head>
+<body>
+    <input type="button" id="btn1" value="换红皮肤">
+    <input type="button" id="btn2" value="换蓝皮肤">
+    <div id="text"></div>
+    <script>
+        var obtn1=document.getElementById("btn1");
+        var obtn2=document.getElementById("btn2");
+        var link=document.getElementById("link");
+        obtn1.onclick=function () {
+            link.href="换肤1.css";
+        };
+        obtn2.onclick=function () {
+            link.href="换肤2.css";
+        };
+    </script>
+</body>
+</html>

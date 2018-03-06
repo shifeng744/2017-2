@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            text-align: center;
+        }
+        .box{
+            width: 595px;
+
+            overflow: hidden;
+            margin: 50px auto;
+        }
+        .box .left{
+            float: left;
+            width: 520px;
+            height: 290px;
+            position: relative;
+            border: 5px solid #ccc;
+            overflow: hidden;
+        }
+        .box .left p{
+            background-color: rgba(0,0,0,.4);
+            position: absolute;
+            color: #fff;
+            width: 100%;
+            text-align: center;
+        }
+        .box .right{
+            float: right;
+            list-style: none;
+            line-height: 50px;
+            text-align: center;
+            margin:30px 0 20px 10px ;
+        }
+        .box .right li{
+            width: 50px;
+            height: 50px;
+            background-color: aqua;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .box .left #img{
+            width: 100%;
+        }
+        .box .left .text1{
+            bottom:0 ;
+        }
+        .box .right .cur{
+            background-color: red;
+        }
+
+    </style>
+</head>
+
+<body>
+<div class="box">
+    <div class="left">
+        <p class="text"></p>
+        <img src="images/a1.jpg" id="img">
+        <p class="text1"></p>
+    </div>
+
+    <ul class="right">
+        <li class="cur">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+</div>
+<a href="javascript:;" id="btn-left">左边</a>
+<a href="javascript:;" id="btn-right">右边</a>
+<script>
+    var obox=document.getElementsByClassName("box")[0];
+    var left=document.getElementsByClassName("left")[0];
+    var text=document.getElementsByClassName("text")[0];
+    var oimg=document.getElementById("img");
+    var obtn1=document.getElementById("btn-left");
+    var obtn2=document.getElementById("btn-right");
+    var text1=document.getElementsByClassName("text1")[0];
+    var right=document.getElementsByClassName("right")[0];
+    var Li=document.getElementsByTagName("li");
+    var arr= [
+        "images/a1.jpg",
+        "images/a2.jpg",
+        "images/a3.jpg",
+        "images/a4.jpg"
+    ];
+    var arr1= [
+        "1111111111111",
+        "22222222222222",
+        "3333333333333",
+        "44444444444444"
+    ];
+    var num=0;
+    function fn1() {
+        text.innerHTML=(num+1)+"/"+arr.length;
+        text1.innerHTML=arr1[num];
+        oimg.src=arr[num];
+    }
+    fn1();
+
+    for(var i=0;i<Li.length;i++)
+    {   Li[i].index=i;
+        Li[i].onclick=function () {
+
+            for(var i=0;i<Li.length;i++){
+                Li[i].className="";
+            }
+            num=this.index;
+            fn1();
+            this.className="cur";
+        }
+    }
+    //轮播
+    var timer=null;
+
+    function autoPlay() {
+        clearInterval(timer);
+        timer=setInterval(function ()
+        {
+
+            num++;
+            if(num>=arr.length)
+            {
+                num=0;
+            }
+                for(var i=0;i<Li.length;i++)
+                {
+                    Li[i].className="";
+                }
+                Li[num].className="cur";
+
+            fn1();
+
+        },2000)
+    }
+    autoPlay();
+    //停止轮播
+    obox.onmouseover=function () {
+        clearInterval(timer);
+    };
+    obox.onmouseout=function () {
+        autoPlay();
+    };
+    //左右
+    obtn1.onclick=function () {
+        num--;
+        if (num<0){
+            num=(Li.length-1);
+        }
+        fn1();
+        for(var i=0;i<Li.length;i++)
+        {
+            Li[i].className="";
+        }
+        Li[num].className="cur";
+    };
+    obtn2.onclick=function () {
+        num++;
+        if (num>=Li.length){
+            num=0;
+        }
+        fn1();
+        for(var i=0;i<Li.length;i++)
+        {
+            Li[i].className="";
+        }
+        Li[num].className="cur";
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="file" id="file"><p id="text">你还未上传文件</p>
+<script>
+    var file=document.getElementById("file");
+    var text=document.getElementById("text");
+    file.onchange=function () {
+        var str=this.value;
+        var str1=str.indexOf(".");
+        var str2=str.substr(str1,3).toLocaleUpperCase();
+        if(str2 == "PNG" || str2 =="JPG"){
+            text.value="操作成功"
+        }
+        else {
+            text.value="操作失败，格式不对"
+        }
+    }
+</script>
+</body>
+</html>

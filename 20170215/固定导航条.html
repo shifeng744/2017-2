@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            display: block;
+            margin: 0 auto;
+        }
+        #box{
+            width: 1400px;
+            text-align: center;
+        }
+        .nav{
+            position: fixed;
+            top: 0px;
+        }
+        #img{
+          position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div>
+            <img src="images/top.png">
+        </div>
+        <div id="img" >
+            <img src="images/nav.png" >
+        </div>
+        <div>
+            <img src="images/main.png">
+        </div>
+    </div>
+<script>
+    var nav=document.getElementById("nav");
+    var oimg=document.getElementById("img");
+
+    function cro(){
+        if(document.body.scrollTop){
+            return{
+                top:document.body.scrollTop
+            }
+        }
+        else {
+            return{
+                top:document.documentElement.scrollTop
+            }
+        }
+    }
+    window.onscroll=function () {
+        if(cro().top>=oimg.offsetTop){
+            oimg.setAttribute("class","nav");
+        }
+        else {
+            oimg.removeAttribute("class","nav")
+        }
+    }
+
+</script>
+</body>
+</html>

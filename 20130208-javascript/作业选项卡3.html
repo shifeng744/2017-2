@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            list-style: none;
+            display: none;
+        }
+        #box{
+            width: 250px;
+            height: 300px;
+            margin:20px auto;
+        }
+        p{
+            background-color: #ccc;
+            border-bottom: 1px solid black;
+        }
+        .box1{
+            border: 1px solid #ccc;
+        }
+        .new{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <div class="box1" >
+        <p>web前端</p>
+        <ul class="new">
+            <li>111111</li>
+            <li>222222</li>
+            <li>333333</li>
+        </ul>
+    </div>
+    <div class="box1">
+        <p>web前端</p>
+        <ul>
+            <li>44444444</li>
+            <li>555555</li>
+            <li>6666666</li>
+        </ul>
+    </div>
+    <div class="box1">
+        <p>web前端</p>
+        <ul>
+            <li>177777</li>
+            <li>288888882</li>
+            <li>999999933</li>
+        </ul>
+    </div>
+</div>
+<script>
+    var obox=document.getElementById("box");
+    var odiv=obox.getElementsByClassName("box1");
+    var op=document.getElementsByTagName("p");
+    var oul=document.getElementsByTagName("ul");
+
+    for(var i=0;i<odiv.length;i++){
+        op[i].index=i;
+        oul[i].index=i;
+        op[i].onclick=function () {
+            if (oul[this.index].style.display == "none") {
+                oul[this.index].style.display = "block";
+            }
+            else {
+                oul[this.index].style.display = "none"
+            }
+        };
+    }
+</script>
+</body>
+</html>

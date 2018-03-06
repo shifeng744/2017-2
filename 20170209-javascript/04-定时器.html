@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div  id="text"></div>
+    <input type="button" value="开始" id="star">
+    <input type="button" value="停止" id="stop">
+
+   <script>
+       var text=document.getElementById("text");
+       var star=document.getElementById("star");
+       var stop=document.getElementById("stop");
+       text.innerHTML=0;
+       var num=0,timer=null;
+       star.onclick=function () {
+           clearInterval(timer);
+           timer=setInterval(function () {
+               num++;
+               text.innerHTML=num;
+           },500)
+
+       };
+        stop.onclick=function () {
+            clearInterval(timer)
+        }
+   </script>
+</body>
+</html>

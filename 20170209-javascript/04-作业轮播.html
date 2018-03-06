@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            width: 492px;
+            height: 172px;
+            border: 1px solid red;
+            position: relative;
+            margin: auto;
+        }
+        #ul{
+            float: left;
+            list-style: none;
+            position: absolute;
+            text-align: center;
+            line-height: 25px;
+            right: 10px;
+            bottom: -10px;
+        }
+        #ul li{
+            float: left;
+            width: 25px;
+            height:25px;
+            background-color: #ccc;
+            margin-right: 5px;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+       #box #ul .cur{
+            background-color: burlywood;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <ul id="ul">
+            <li class="cur">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <div >
+            <img src="" id="img">
+        </div>
+    </div>
+    <script>
+        var obox=document.getElementById("box");
+        var oul=document.getElementById("ul");
+        var oli=document.getElementsByTagName("li");
+        var oimg=document.getElementById("img");
+        var arr=[
+            "images/01.jpg",
+            "images/02.jpg",
+            "images/03.jpg",
+            "images/04.jpg",
+            "images/05.jpg"
+        ];
+        var num=0;
+        function fn1() {
+            oimg.src=arr[num];
+        }
+        fn1();
+        for(var i=0;i<oli.length;i++){
+            oli[i].index=i;
+            oli[i].onclick=function () {
+                for(var i=0;i<oli.length;i++ ){
+                    oli[i].className=""
+                }
+                num=this.index;
+                fn1();
+                this.className="cur";
+            }
+        }
+        //轮播
+        var timer=null;
+        function lunbo() {
+            clearInterval(timer);
+            timer=setInterval(function () {
+                num++;
+                if (num>=arr.length)
+                {
+                    num=0;
+                }
+                for(var i=0;i<oli.length;i++ ){
+                    oli[i].className=""
+                }
+                oli[num].className="cur";
+               fn1();
+            },2000)
+        }
+        lunbo();
+    </script>
+</body>
+</html>

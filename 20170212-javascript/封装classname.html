@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul class="uli">
+        <li>1</li>
+        <li>2</li>
+        <li class="box">3</li>
+        <li>4</li>
+        <li class="box">5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+    </ul>
+<script>
+    /*function getclass(classname) {
+        if(document.getElementsByClassName)
+        {
+            return document.getElementsByClassName(classname);
+        }
+        else
+        {
+            var arr=[];
+            var dom=document.getElementsByTagName("*");
+            for(var i=0;i<dom.length;i++)
+            {
+                if(dom[i].className==classname)
+                {
+                    arr.push(dom[i]);
+                }
+            }
+            return arr;
+        }
+    }
+    var uli=document.getElementById("uli");
+    var oBox=getclass("box");
+    for(var i=0;i<oBox.length;i++){
+        oBox[i].style.background="pink"
+    }*/
+
+   /* function getclass(classname) {
+        if(document.getElementsByClassName)
+        {
+            return document.getElementsByClassName(classname)
+        }
+        else
+        {
+            var dom=document.getElementsByTagName("*");
+            var arr=[];
+            for(var i=0;i<dom.length;i++){
+                if(dom[i].className==classname)
+                {
+                    arr.push(dom[i]);
+                }
+            }
+            return arr;
+        }
+    }
+
+    var li=getclass("box");
+    for(var i=0;i<li.length;i++)
+    {
+        li[i].style.background="pink"
+    }*/
+
+
+   function getclass(classname) {
+       if(document.getElementsByClassName)
+       {
+           return document.getElementsByClassName(classname)
+       }
+       else
+       {
+           var dom=document.getElementsByTagName("*");
+           var arr=[];
+           for(var i=0;i<dom.length;i++)
+           {
+               if(dom[i].className==classname)
+               {
+                   arr.push(dom[i])
+               }
+           }
+           return arr;
+       }
+   }
+
+    var oBox=getclass("box");
+    for(var i=0;i<oBox.length;i++)
+    {
+        oBox[i].style.background="pink"
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

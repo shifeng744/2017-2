@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        .box{
+            width: 300px;
+            height: 150px;
+            border: 1px solid #ccc;
+            margin: 50px auto;
+        }
+        .box ul li{
+            list-style: none;
+            float: left;
+            padding: 10px 25px;
+            background-color: #ccc;
+        }
+        .box div{
+            clear: both;
+        }
+        .box .cur{
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li class="cur">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <div>p</div>
+    </div>
+        <div class="box">
+        <ul>
+            <li class="cur">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <div>p</div>
+    </div>
+    <script>
+    	var oBox=document.getElementsByClassName("box");
+    	for(var i=0;i<oBox.length;i++){
+    		fn(oBox[i])
+    	}
+		function fn(oBox){
+        var oDiv=oBox.getElementsByTagName("div")[0];
+        var oUl=oBox.getElementsByTagName("ul")[0];
+        var oLi=oUl.getElementsByTagName("li");
+        var timer=null,num=0;
+        var arr=[
+                "1111111111111",
+                "2222222222222222",
+                "333333333333333",
+                "44444444444444444",
+                "5555555555555555"
+        ];
+        for(var i=0;i<oLi.length;i++)
+        {
+            oLi[i].index=i;
+              oLi[i].onmouseover=function () {
+                  clearInterval(timer);
+                  for(var i=0;i<oLi.length;i++){
+                      oLi[i].className="";
+                  }
+                  this.className="cur";
+                  num=this.index;
+                  oDiv.innerHTML=arr[this.index];
+          }
+        }
+        //轮播
+        function fn1() {
+            clearInterval(timer);
+            timer=setInterval(function () {
+                num++;
+                if(num>=oLi.length){
+                    num=0
+                }
+                for(var i=0;i<oLi.length;i++){
+                    oLi[i].className="";
+                }
+                oLi[num].className="cur";
+                oDiv.innerHTML=arr[num];
+            },1000)
+        }
+        fn1();
+        for(var i=0;i<oLi.length;i++)
+        {
+            oLi[i].index=i;
+            oLi[i].onmouseout=function () {
+                fn1();
+            }
+            }
+
+
+		}
+
+    </script>
+</body>
+</html>

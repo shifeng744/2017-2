@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="height: 2000px">
+<script>
+    function cro(){
+        if(document.body.scrollTop){
+            return{
+                top:document.body.scrollTop
+            }
+        }
+        else {
+            return{
+                top:document.documentElement.scrollTop
+        }
+        }
+    }
+    window.onscroll=function () {
+        console.log(cro().top)
+    }
+</script>
+
+
+</body>
+</html>

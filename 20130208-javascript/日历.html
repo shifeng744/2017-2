@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            width: 500px;
+            height: 800px;
+            background-color: #ccc;
+            margin: auto;
+            color: #fff;
+            text-align: center;
+            line-height: 120px;
+            overflow: hidden;
+        }
+        ul{
+            list-style: none;
+        }
+        li{
+            background-color:black;
+            float: left;
+            margin: 10px;
+            width: 120px;
+            height: 120px;
+        }
+        .lili{
+            background-color:plum;
+        }
+        #box2{
+            clear: both;
+        }
+        p{
+            margin-top: -80px;
+        }
+    </style>
+</head>
+<body>
+    <section id="box">
+        <ul>
+            <li class="lili">1月</li>
+            <li>2月</li>
+            <li>3月</li>
+            <li>4月</li>
+            <li>5月</li>
+            <li>6月</li>
+            <li>7月</li>
+            <li>8月</li>
+            <li>9月</li>
+            <li>10月</li>
+            <li>11月</li>
+            <li>12月</li>
+        </ul>
+        <div id="box2">
+            <h1>现在是1月</h1>
+            <p>现在是11111111111月</p>
+        </div>
+    </section>
+
+    <script>
+        var arr=[
+                "现在是11111111111月",
+                "现在是22222222222222月",
+                "现在是33333333333333月",
+                "现在是444444444444444月",
+                "现在是555555555555555月",
+                "现在是666666666666月",
+                "现在是77777777777777777777月",
+                "现在是888888888888月",
+                "现在是9999999999999月",
+                "现在是100000000000月",
+                "现在是11111112233111111月",
+                "现在是1232222222222222月"
+        ];
+        var box=document.getElementById("box");
+        var Li=box.getElementsByTagName("li");
+        var box2=document.getElementById("box2");
+        for(var i=0;i<Li.length;i++){
+            Li[i].index=i+1;
+            Li[i].onmouseover=function () {
+                for(var j=0;j<Li.length;j++){
+                    Li[j].className="none"
+                }
+                this.className="lili";
+                box2.innerHTML="<h1>"+"现在是"+this.index+"月"+"</h1>"+"<p>"+arr[this.index-1]+"</p>"
+            }
+        }
+    </script>
+</body>
+</html>

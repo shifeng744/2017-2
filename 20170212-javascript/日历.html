@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            font-family: "微软雅黑";
+        }
+        div{
+            width: 150px;
+            height: 150px;
+            background: black;
+            color: #fff;
+            text-align: center;
+            margin: 50px auto;
+            overflow: hidden;
+        }
+        div p:first-child{
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        div p:last-child{
+            font-size: 40px;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <p>2011年12月3日 星期一</p>
+        <p>18</p>
+    </div>
+    <script>
+        var div=document.getElementsByTagName("div")[0];
+        var arr=[
+                "星期日",
+                "星期一",
+                "星期二",
+                "星期三",
+                "星期四",
+                "星期五",
+                "星期六"
+        ]
+        var allday=new Date();
+        div.children[0].innerHTML=allday.getFullYear()+"年"+(allday.getMonth()+1)+"月"+allday.getDate()+"日"
+                +arr[allday.getDay()];
+
+        div.children[1].innerHTML=allday.getDate();
+    </script>
+</body>
+</html>

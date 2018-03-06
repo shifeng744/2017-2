@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        li{
+            list-style: none;
+            margin-top: 10px;
+            width: 400px;
+            height: 50px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<script>
+    var oul=document.getElementsByTagName("ul")[0];
+    var oli=oul.children;
+    var speed=5,timer=null;
+            function think(obj,iTarget,attr,offset){
+                clearInterval(obj.timer);
+                obj.timer=setInterval(function () {
+                    speed=(iTarget-obj[offset])/10;
+                    speed=speed>0 ? Math.ceil(speed) :Math.floor(speed);
+                    obj.style[attr]=obj[offset] + speed +"px"
+                },30)
+            }
+
+            for(var i=0;i<oli.length;i++) {
+                oli[i].onmouseover = function () {
+                    think(this, 200,"height","offsetHeight")
+                };
+                oli[i].onmouseout = function () {
+                    think(this, 50,"height","offsetHeight")
+                }
+
+            }
+</script>
+</body>
+</html>

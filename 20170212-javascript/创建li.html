@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="text" >
+<input type="button" id="btn" value="提交">
+<ul id="ul"></ul>
+<script>
+    var oTet=document.getElementById("text");
+    var oBtn=document.getElementById("btn");
+    var oUl=document.getElementById("ul");
+    var aLi=oUl.getElementsByTagName("li");
+    oBtn.onclick=function () {
+            var oLi=document.createElement("li");
+            oLi.innerHTML=oTet.value;
+            if(aLi.length>0){
+                oUl.insertBefore(oLi,aLi[0]);
+            }
+            else{
+                oUl.appendChild(oLi)
+            }
+
+    }
+</script>
+</body>
+</html>

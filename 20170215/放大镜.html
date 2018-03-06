@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+
+              margin-top: 100px;
+              margin-left: 100px;
+            position: relative;
+            width:350px ;
+            height: 350px;
+            border: 1px solid #ccc;
+        }
+        #small {
+            position: relative;
+        }
+       #sbox{
+           background: yellow;
+           opacity: 0.3;
+           width: 100px;
+           height: 100px;
+           position: absolute;
+           cursor: move;
+           top:0;
+           left: 0;
+       }
+        #sbox{
+            position: absolute;
+            top: 0;
+            left:0;
+            display: none;
+        }
+        #big{
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            left: 370px;
+            top:0px;
+            display: none;
+        }
+        #big #oimg{
+            position: absolute;
+            top:0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+        <div id="small">
+            <img src="001.jpg">
+            <div id="sbox"></div>
+        </div>
+        <div id="big">
+            <img src="0001.jpg" id="oimg">
+        </div>
+
+</div>
+
+<script>
+    var obox=document.getElementById("box");
+    var osmall=document.getElementById("small");
+    var osbox=document.getElementById("sbox");
+    var obox=document.getElementById("box");
+    var obig=document.getElementById("big");
+    var ooimg=document.getElementById("oimg");
+    osmall.onmouseover=function () {
+        osbox.style.display = "block";
+        obig.style.display = "block";
+    };
+    osmall.onmouseout=function () {
+        osbox.style.display="none";
+        obig.style.display="none"
+    };
+    osmall.onmousemove=function (ev) {
+        var oevent=ev || event;
+        var x=oevent.clientX  -obox.offsetLeft-osbox.offsetWidth/2;
+        var y=oevent.clientY-obox.offsetTop-osbox.offsetHeight/2;
+        var that=this;
+        if(x<0){
+            x=0;
+        }
+        else if (x>osmall.offsetWidth-osbox.offsetWidth){
+           x=osmall.offsetWidth-osbox.offsetWidth
+        }
+         if(y<0)
+         {
+         y = 0;
+         }
+         else if(y > osmall.offsetHeight - osbox.offsetHeight)
+         {
+         y = osmall.offsetHeight - osbox.offsetHeight;
+         }
+
+     osbox.style.left=x +"px";
+        osbox.style.top=y+"px";
+        ooimg.style.left=-x *obig.offsetWidth/obox.offsetWidth+"px";
+        ooimg.style.top=-y *obig.offsetHeight/obox.offsetHeight+"px";
+    }
+
+
+
+</script>
+</body>
+</html>

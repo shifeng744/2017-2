@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    div{
+        position: relative;
+        overflow: hidden;
+        margin: 50px auto;
+        width: 1000px;
+        background-color: red;
+        height:166px ;
+    }
+    ul{
+        list-style: none;
+        position: absolute;
+        top:0;
+        left:0px;
+        margin: 0;
+        padding: 0;
+    }
+    li{
+        width: 250px;
+        float: left;
+    }
+    ul li img{
+        display: block;
+        width: 100%;
+    }
+</style>
+<body>
+    <div>
+        <ul>
+            <li><img src="images/01.jpg"> </li>
+            <li><img src="images/02.jpg"> </li>
+            <li><img src="images/03.jpg"> </li>
+            <li><img src="images/04.jpg"> </li>
+        </ul>
+    </div>
+    <input type="button" value="加速" id="jia">
+    <input type="button" value="减速" id="jian">
+    <input type="button" value="左" id="zuo">
+    <input type="button" value="右" id="you">
+    <script>
+        var jia=document.getElementById("jia");
+        var jian=document.getElementById("jian");
+        var zuo=document.getElementById("zuo");
+        var you=document.getElementById("you");
+        var odiv=document.getElementsByTagName("div")[0];
+        var oul=odiv.getElementsByTagName("ul")[0];
+        oul.innerHTML=oul.innerHTML+oul.innerHTML;
+        var oli=oul.getElementsByTagName("li");
+        oul.style.width=oli.length * 250 + "px";
+        var timer=null,speed=1;
+
+        jia.onclick=function () {
+            speed++;
+            if(speed>=7){
+                speed=7;
+                alert("速度已经最快");
+            }
+        };
+        jian.onclick=function () {
+            speed--;
+            if(speed<=0){
+                speed=1;
+                alert("速度已经最慢");
+            }
+        };
+        function fn1() {
+            clearInterval(timer);
+            timer=setInterval(function () {
+                if(oul.offsetLeft>=0)
+                {
+                    oul.style.left="-1000px";
+                }
+                oul.style.left=oul.offsetLeft + speed +"px"
+            },20)
+        }
+        fn1();
+        you.onclick=function () {
+            fn1();
+        };
+        zuo.onclick=function () {
+            function fn2() {
+                clearInterval(timer);
+                timer=setInterval(function () {
+
+                    if(oul.offsetLeft<=-1000)
+                    {
+                        oul.style.left="0px";
+                    }
+                    oul.style.left=oul.offsetLeft - speed +"px";
+                },20)
+            }
+            fn2();
+        };
+
+    </script>
+</body>
+</html>

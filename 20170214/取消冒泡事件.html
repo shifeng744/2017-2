@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            background-color: aqua;
+            width: 100px;
+            height: 200px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<input type="button" id="btn" value="登录">
+<div id="box"></div>
+<script>
+    var obtn=document.getElementById("btn");
+    var obox=document.getElementById("box");
+    obtn.onclick=function (ev) {
+        var oevent=ev ||event;
+        oevent.cancelBubble=true;
+        if (obox.style.display=="block"){
+            obox.style.display="none"
+        }
+        else
+        {
+            obox.style.display="block"
+        }
+
+    };
+    obox.onclick=function (ev) {
+        var oevent=ev ||event;
+        oevent.cancelBubble=true;
+    }
+    document.onclick=function () {
+        obox.style.display="none";
+    }
+</script>
+</body>
+</html>

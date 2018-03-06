@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            background: fuchsia;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+
+        }
+    </style>
+</head>
+<body>
+<div id="TK"></div>
+<script>
+    var oTK=document.getElementById("TK");
+    document.onkeydown=function yidong(ev) {
+        var oevent=ev || event;
+        var speed=10;
+        if(oevent.keyCode==38)
+        {
+            oTK.style.top=oTK.offsetTop - speed+"px"
+        }
+        else if(oevent.keyCode==39)
+        {
+            oTK.style.left=oTK.offsetLeft + speed+"px"
+        }
+        else if(oevent.keyCode==40)
+        {
+            oTK.style.top=oTK.offsetTop + speed+"px"
+        }
+        else if(oevent.keyCode==37)
+        {
+            oTK.style.left=oTK.offsetLeft - speed+"px"
+        }
+
+
+    }
+</script>
+</body>
+</html>

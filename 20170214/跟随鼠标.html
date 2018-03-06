@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img{
+            position: absolute;
+            top:0;
+            left: 0;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <img src="img.jpg" id="oimg">
+<script>
+    var oimg=document.getElementById("oimg");
+    var timer=null,speedX=5,speedY=5;
+    document.onmousedown=function (ev) {
+        var oevent=ev || event;
+        var iTagerX=oevent.clientX -(oimg.offsetWidth/2);
+        var iTagerY=oevent.clientY-(oimg.offsetHeight/2);
+        clearInterval(timer);
+        timer=setInterval(function () {
+            speedX=(iTagerX-oimg.offsetLeft)/10;
+            speedY=(iTagerY-oimg.offsetTop)/10 ;
+            speedX=speedX>0 ? Math.ceil(speedX) :Math.ceil(speedX);
+            speedY=speedY>0 ? Math.ceil(speedY) :Math.ceil(speedY);
+            oimg.style.left=oimg.offsetLeft +speedX+"px";
+            oimg.style.top=oimg.offsetTop +speedY+"px";
+            console.log(speedX,speedY);
+            if(!speedX && !speedY){
+                clearInterval(timer);
+            }
+
+        },20)
+    }
+</script>
+</body>
+</html>

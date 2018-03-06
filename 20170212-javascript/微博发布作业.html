@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .bigbox{
+            width: 300px;
+            height: 400px;
+            border: 1px solid black;
+            margin: 100px auto;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        li{
+            text-align: left;
+        }
+        a{
+            display: block;
+            float: right;
+        }
+
+    </style>
+</head>
+<body>
+<div class="bigbox">
+    <input type="text" id="text" >
+    <input type="button" id="btn" value="提交">
+    <ul id="ul"></ul>
+    <script>
+        var oTet=document.getElementById("text");
+        var oBtn=document.getElementById("btn");
+        var oUl=document.getElementById("ul");
+        var aLi=oUl.getElementsByTagName("li");
+    /*    var oa=oUl.getElementsByTagName("a");*/
+        oBtn.onclick=function () {
+            var oLi=document.createElement("li");
+            var aa=document.createElement("a");
+            aa.innerHTML="删除";
+
+            oLi.innerHTML=oTet.value;
+            if(aLi.length>0){
+                oUl.insertBefore(oLi,aLi[0]);
+                oLi.insertBefore(aa,aLi[aLi.length]);
+            }
+            else{
+                oUl.appendChild(oLi);
+                oLi.appendChild(aa)
+            }
+
+        };
+       /*var oa=aLi.getElementsByTagName("a");*!/
+        for(var i=0;i<aLi.length;i++)
+        {
+            oa[i].onmouseover=function () {
+                alert()
+            }
+        }*/
+    </script>
+</div>
+</body>
+</html>

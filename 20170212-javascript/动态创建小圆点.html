@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 728px;
+            height: 454px;
+            overflow: hidden;
+            margin: 50px auto;
+            position: relative;
+        }
+        ul{
+            list-style: none;
+        }
+        ol{
+            list-style: none;
+            position: absolute;
+            bottom: 20px;
+            z-index: 2;
+            text-align: center;
+            line-height: 30px;
+            left: 50%;
+
+        }
+        ol li{
+            display: inline-block;
+            background: black;
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            color: #fff;
+        }
+        .cur{
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li><img src="images/11.jpg"> </li>
+            <li><img src="images/22.jpg"> </li>
+            <li><img src="images/33.jpg"> </li>
+            <li><img src="images/44.jpg"> </li>
+            <li><img src="images/55.jpg"> </li>
+        </ul>
+        <!--<ol>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ol>-->
+    </div>
+    <script>
+        var oul=document.getElementsByTagName("ul")[0];
+        var oimg=oul.getElementsByTagName("img")[0];
+        var odiv=document.getElementsByTagName("div")[0];
+        var ali=oul.children;
+        //创建ol
+        var newol=document.createElement("ol");
+        odiv.appendChild(newol);
+        //创建li
+        for(var i=0;i<ali.length;i++){
+            var newli=document.createElement("li");
+            newol.appendChild(newli)
+        }
+        var olLi=newol.children[0];
+        olLi.setAttribute("class","cur");
+        //居中
+        newol.style.marginLeft=-newol.offsetWidth/2 +"px"
+
+    </script>
+</body>
+</html>

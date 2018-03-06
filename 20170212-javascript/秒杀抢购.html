@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    var endDate=new Date("2017/2/12 18:00");
+
+    function clock(){
+        var mydata=new Date(); // 获取当前的时间\
+
+        //得到秒
+        var seecnt= (endDate.getTime() - mydata.getTime()) / 1000;
+
+        //得到天数
+        var dy= parseInt(seecnt / 3600 / 24);
+
+        //得到小时
+        var h= parseInt(seecnt / 3600 % 24);
+
+        //等到分
+        var m= parseInt(seecnt / 3600 * 60 % 60);
+
+        //得到秒
+        var s = parseInt(seecnt % 60 );
+
+
+        console.log(dy+"天"+ h + "小时" + m +"分" + s + "秒");
+    }
+    setInterval("clock()",1000);
+
+
+
+</script>
+
+</body>
+</html>

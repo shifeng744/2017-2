@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #text{
+            width: 150px;
+            height: 150px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" id="btn1" value="变宽">
+    <input type="button" id="btn2" value="变高">
+    <input type="button" id="btn3" value="变色">
+    <input type="button" id="btn4" value="还原">
+    <div id="text"></div>
+<script>
+    var obtn1=document.getElementById("btn1");
+    var obtn2=document.getElementById("btn2");
+    var obtn3=document.getElementById("btn3");
+    var obtn4=document.getElementById("btn4");
+    var text=document.getElementById("text");
+    obtn1.onclick=function () {
+        text.style.width="200px";
+    };
+    obtn2.onclick=function () {
+        text.style.height="200px";
+    };
+    obtn3.onclick=function () {
+        text.style.background="blue";
+    };
+    obtn4.onclick=function () {
+        var off=confirm("确定还原吗");
+        if(!off) return;
+        text.style.width="150px";
+        text.style.height="150px";
+        text.style.background="red";
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            height: 5000px;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            display: none;
+        }
+        .denglu{
+            background-color:greenyellow;
+            height: 300px;
+            width: 200px;
+            position: absolute;
+            top:50%;
+            left: 50%;
+            margin-left: -100px;
+            margin-top: -150px;
+            cursor: move;
+            z-index: 100;
+        }
+        .zz{
+            width: 100%;
+            height: 100%;
+            background-color: #ccc;
+            opacity: 0.;
+            position: absolute;
+
+
+        }
+        #btn1{
+            position: absolute;
+            z-index: 1000;
+        }
+        /*.a{
+            width: 100%;
+            height: 100%;
+            background-color: #ccc;
+        }*/
+    </style>
+</head>
+<body>
+
+    <div id="box">
+
+        <div class="denglu" style="">
+            <h1>登录</h1>
+            <p>111111</p>
+
+        </div>
+
+        <div class="zz"></div>
+    </div>
+    <div class="a">
+        <input type="button" value="登录" id="btn">
+    </div>
+    <input type="button" value="退出" id="btn1">
+<script>
+    var obtn=document.getElementById("btn");
+    var obtn1=document.getElementById("btn1");
+    var obox=document.getElementById("box");
+    var aa=document.getElementsByClassName("a")[0];
+    var odenglu=document.getElementsByClassName("denglu")[0];
+    obtn.onclick=function () {
+        obox.style.display="block";
+        obtn.disabled=true;
+
+    };
+    obtn1.onclick=function () {
+        obox.style.display="none";
+        obtn.disabled=false;
+    };
+    odenglu.onmousedown=function (ev) {
+        var oevent=ev || event;
+        var that=this;
+        var x=oevent.clientX-odenglu.offsetLeft;
+        var y=oevent.clientY-odenglu.offsetTop;
+       // console.log(oevent.clientX);
+       // console.log( odenglu.offsetLeft);
+        document.onmousemove=function (ev) {
+            var oevent=ev || event;
+            that.style.left=oevent.clientX-x +(that.offsetWidth/2)+ "px";
+            that.style.top=oevent.clientY-y +(that.offsetHeight/2)+"px";
+        };
+        window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
+    };
+    document.onmouseup=function(){
+        document.onmousemove=null;
+    };
+
+</script>
+</body>
+</html>
